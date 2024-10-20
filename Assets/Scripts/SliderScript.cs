@@ -9,11 +9,24 @@ public class SliderScript : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI tmp;
     public string unit;
+    public Doppler doppler;
     // Start is called before the first frame update
     void Start()
     {
         slider.onValueChanged.AddListener((v) => {
             tmp.text = tmp.name + " - " + v.ToString("0.") +" "+ unit;
+            if (tmp.name == "vo")
+            {
+                doppler.SetVo(v); 
+            }
+            else if (tmp.name == "fs")
+            {
+                doppler.SetFs(v);
+            }
+            else if (tmp.name == "fo")
+            {
+                doppler.SetFo(v);
+            }
         });
     }
 
