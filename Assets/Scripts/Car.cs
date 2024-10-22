@@ -14,7 +14,7 @@ public class Car : MonoBehaviour
     {
         if (carVo.tag == "vo")
         {
-            if (carVo.transform.position.x > -9 && carVo.transform.position.x < 9) { 
+            if (carVo.transform.position.x >= -9 && carVo.transform.position.x <= 9) { 
                 Vector3 newPosition = new Vector3(-s / speed, carVo.transform.position.y, carVo.transform.position.z);
                 carVo.transform.position = newPosition;
 
@@ -32,7 +32,7 @@ public class Car : MonoBehaviour
         }
         if (carVs.tag == "vs")
         {
-            if (carVs.transform.position.x < 9 && carVs.transform.position.x > -9)
+            if (carVs.transform.position.x <= 9 && carVs.transform.position.x >= -9)
             {
                 Vector3 newPosition = new Vector3(s / speed, carVs.transform.position.y, carVs.transform.position.z);
                 carVs.transform.position = newPosition;
