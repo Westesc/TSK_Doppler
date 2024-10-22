@@ -480,7 +480,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1197934306}
   m_Direction: 0
   m_MinValue: 20
-  m_MaxValue: 20000
+  m_MaxValue: 2000
   m_WholeNumbers: 1
   m_Value: 20
   m_OnValueChanged:
@@ -863,8 +863,8 @@ GameObject:
   - component: {fileID: 950015803}
   - component: {fileID: 950015802}
   m_Layer: 0
-  m_Name: Car 2
-  m_TagString: Untagged
+  m_Name: Car vo
+  m_TagString: vo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,7 +930,7 @@ Transform:
   m_GameObject: {fileID: 950015801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.72, y: -3.47, z: 0}
+  m_LocalPosition: {x: 0, y: -3.47, z: 0}
   m_LocalScale: {x: 2.706, y: 1.2843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1539,8 +1539,8 @@ GameObject:
   - component: {fileID: 1367496498}
   - component: {fileID: 1367496497}
   m_Layer: 0
-  m_Name: Car 1
-  m_TagString: Untagged
+  m_Name: Car vs
+  m_TagString: vs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,7 +1606,7 @@ Transform:
   m_GameObject: {fileID: 1367496496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.66, y: -1.05, z: 0}
+  m_LocalPosition: {x: 0, y: -1.05, z: 0}
   m_LocalScale: {x: 2.706, y: 1.2843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 730544503}
   m_Direction: 0
   m_MinValue: 20
-  m_MaxValue: 20000
+  m_MaxValue: 2000
   m_WholeNumbers: 1
   m_Value: 20
   m_OnValueChanged:
@@ -2510,6 +2510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098220273}
   - component: {fileID: 2098220272}
+  - component: {fileID: 2098220274}
   m_Layer: 0
   m_Name: Doppler
   m_TagString: Untagged
@@ -2531,6 +2532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmp_s: {fileID: 1928554283}
   tmp_vs: {fileID: 1051245034}
+  car: {fileID: 2098220274}
 --- !u!4 &2098220273
 Transform:
   m_ObjectHideFlags: 0
@@ -2546,6 +2548,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098220274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098220271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c589bcf075d1e542aeb98991cee214b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  s: 4
+  carVs: {fileID: 1367496496}
+  carVo: {fileID: 950015801}
 --- !u!1 &2110343592
 GameObject:
   m_ObjectHideFlags: 0
