@@ -11,6 +11,7 @@ public class Doppler : MonoBehaviour
     private float fs;
     private float fo;
     private float s = 0;
+    public AudioSource sound;
     [SerializeField] private TextMeshProUGUI tmp_s;
     [SerializeField] private TextMeshProUGUI result;
     [SerializeField] public Version chooseVersion;
@@ -83,6 +84,7 @@ public class Doppler : MonoBehaviour
             tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
             result.text = result.name + " - " + Mathf.Round(vs) + "m/s";
             car.s = s;
+            sound.GetComponent<AudioSimulator>().frequency = fo;
         }
     }
 
@@ -112,6 +114,7 @@ public class Doppler : MonoBehaviour
             s += deltaTime * (vs - vo);
             tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
             result.text = result.name + " - " + Mathf.Round(fo) + "Hz";
+            sound.GetComponent<AudioSimulator>().frequency = fo;
             car.s = s;
         }
     }
