@@ -12,7 +12,15 @@ public class Doppler : MonoBehaviour
     private float fo;
     private float s = 0;
     [SerializeField] private TextMeshProUGUI tmp_s;
-    [SerializeField] private TextMeshProUGUI tmp_vs;
+    [SerializeField] private TextMeshProUGUI result;
+    [SerializeField] public Version chooseVersion;
+    public enum Version
+    {
+        vs,
+        vo,
+        fo,
+        fs
+    }
     public Car car;
 
     public void SetVo(float value)
@@ -31,10 +39,38 @@ public class Doppler : MonoBehaviour
         fo = value;
     }
 
+    public void SetVs(float value)
+    {
+        vs = value;
+    }
+
     void Update()
     {
+        switch (chooseVersion)
+        {
+            case Version.vs:
+                calculateVs();
+                break;
+
+            case Version.vo:
+                calculateVo();
+                break;
+
+            case Version.fo:
+                calculateFo();
+                break;
+
+            case Version.fs:
+                calculateFs();
+                break;
+        }
+    }
+
+    private void calculateVs()
+    {
         float deltaTime = Time.deltaTime;
-        if (vo != 0 && fs != 0 && fo != 0) {
+        if (vo != 0 && fs != 0 && fo != 0)
+        {
             if (s >= 0)
             {
                 vs = fs * (v + vo) / fo - v;
@@ -44,8 +80,38 @@ public class Doppler : MonoBehaviour
                 vs = v - fs * (v - vo) / fo;
             }
             s += deltaTime * (vs - vo);
-            tmp_s.text = tmp_s.name + " - " + Mathf.Round(s) + " m";
-            tmp_vs.text = tmp_vs.name + " - " + Mathf.Round(vs) + "m/s";
+            tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
+            result.text = result.name + " - " + Mathf.Round(vs) + "m/s";
+            car.s = s;
+        }
+    }
+
+    private void calculateVo()
+    {
+
+    }
+
+    private void calculateFs()
+    {
+
+    }
+
+    private void calculateFo()
+    {
+        float deltaTime = Time.deltaTime;
+        if (vo != 0 && fs != 0 && vs != 0)
+        {
+            if (s >= 0)
+            {
+                fo = (v + vo) / (v + vs) * fs;
+            }
+            else
+            {
+                fo = (v - vo) / (v - vs) * fs;
+            }
+            s += deltaTime * (vs - vo);
+            tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
+            result.text = result.name + " - " + Mathf.Round(fo) + "Hz";
             car.s = s;
         }
     }

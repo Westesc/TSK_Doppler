@@ -27,6 +27,10 @@ public class SliderScript : MonoBehaviour
             {
                 doppler.SetFo(v);
             }
+            else if (tmp.name == "vs")
+            {
+                doppler.SetVs(v);
+            }
         });
     }
 
