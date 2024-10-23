@@ -91,12 +91,46 @@ public class Doppler : MonoBehaviour
 
     private void calculateVo()
     {
-
+        float deltaTime = Time.deltaTime;
+        if (vs != 0 && fs != 0 && fo != 0)
+        {
+            if (s >= 0)
+            {
+                vo = fo * (v + vs) / fs - v;
+            }
+            else
+            {
+                vo = fo * (v - vs) / fs + v;
+            }
+            s += deltaTime * (vs - vo);
+            tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
+            result.text = result.name + " - " + Mathf.Round(vo) + "m/s";
+            car.s = s;
+            sound.GetComponent<AudioSimulator>().frequency = fo;
+            sound.GetComponent<AudioSimulator>().sourceFrequency = fs;
+        }
     }
 
     private void calculateFs()
     {
-
+        float deltaTime = Time.deltaTime;
+        if (vs != 0 && vo != 0 && fo != 0)
+        {
+            if (s >= 0)
+            {
+                fs = fo * (v + vs) / (v+vo);
+            }
+            else
+            {
+                fs = fo * (v - vs) / (v - vo);
+            }
+            s += deltaTime * (vs - vo);
+            tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
+            result.text = result.name + " - " + Mathf.Round(fs) + "Hz";
+            car.s = s;
+            sound.GetComponent<AudioSimulator>().frequency = fo;
+            sound.GetComponent<AudioSimulator>().sourceFrequency = fs;
+        }
     }
 
     private void calculateFo()
