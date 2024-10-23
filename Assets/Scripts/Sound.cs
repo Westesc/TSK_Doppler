@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float frequency;
+    public float sourceFrequency;
 
-    // Update is called once per frame
     void Update()
     {
         

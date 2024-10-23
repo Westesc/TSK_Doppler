@@ -85,6 +85,7 @@ public class Doppler : MonoBehaviour
             result.text = result.name + " - " + Mathf.Round(vs) + "m/s";
             car.s = s;
             sound.GetComponent<AudioSimulator>().frequency = fo;
+            sound.GetComponent<AudioSimulator>().sourceFrequency = fs;
         }
     }
 
@@ -115,6 +116,7 @@ public class Doppler : MonoBehaviour
             tmp_s.text = tmp_s.name + " - " + Mathf.Abs(Mathf.Round(s)) + " m";
             result.text = result.name + " - " + Mathf.Round(fo) + "Hz";
             sound.GetComponent<AudioSimulator>().frequency = fo;
+            sound.GetComponent<AudioSimulator>().sourceFrequency = fs;
             car.s = s;
         }
     }
