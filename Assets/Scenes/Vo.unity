@@ -1543,7 +1543,7 @@ GameObject:
   - component: {fileID: 1051245035}
   - component: {fileID: 1051245034}
   m_Layer: 5
-  m_Name: fo
+  m_Name: vo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'fo - '
+  m_text: 'vo - '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2802,7 +2802,7 @@ GameObject:
   - component: {fileID: 1714488632}
   - component: {fileID: 1714488633}
   m_Layer: 5
-  m_Name: Slider vo
+  m_Name: Slider fo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2875,7 +2875,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1546001810}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 140
+  m_MaxValue: 2000
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
@@ -2895,7 +2895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1714488632}
   tmp: {fileID: 1996043072}
-  unit: m/s
+  unit: Hz
   doppler: {fileID: 2098220272}
 --- !u!1 &1928554281
 GameObject:
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 1996043073}
   - component: {fileID: 1996043072}
   m_Layer: 5
-  m_Name: vo
+  m_Name: fo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3088,7 +3088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'vo - 0 m/s
+  m_text: 'fo - 0 Hz
 
 '
   m_isRightToLeft: 0
@@ -3411,7 +3411,7 @@ MonoBehaviour:
   sound: {fileID: 1393375253}
   tmp_s: {fileID: 1928554283}
   result: {fileID: 1051245034}
-  chooseVersion: 2
+  chooseVersion: 1
   car: {fileID: 2098220274}
 --- !u!4 &2098220273
 Transform:
