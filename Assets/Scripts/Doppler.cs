@@ -55,7 +55,7 @@ public class Doppler : MonoBehaviour
                 if (vo != 0 && fs != 0 && vs != 0)
                 {
                     calculateOnlyFo();
-                    if (fo < 2000 && fo > 20)
+                    if (fo < 20000 && fo > 20)
                     {
                         return true;
                     }
@@ -66,7 +66,7 @@ public class Doppler : MonoBehaviour
                 if (vo != 0 && fo != 0 && vs != 0)
                 {
                     calculateOnlyFs();
-                    if (fs < 2000 && fs > 20)
+                    if (fs < 20000 && fs > 20)
                     {
                         return true;
                     }
@@ -108,7 +108,7 @@ public class Doppler : MonoBehaviour
                 break;
 
             case Version.fo:
-                calculateFsWithVariable(vo, vs, 2000);
+                calculateFsWithVariable(vo, vs, 20000);
                 break;
         }
         return fs_;
@@ -144,7 +144,7 @@ public class Doppler : MonoBehaviour
                 break;
 
             case Version.fs:
-                calculateFoWithVariable(vo, vs, 2000);
+                calculateFoWithVariable(vo, vs, 20000);
                 break;
         }
         return fo_;
@@ -173,7 +173,7 @@ public class Doppler : MonoBehaviour
         switch (chooseVersion)
         {
             case Version.fo:
-                calculateVsWithVariable(vo, fs, 2000);
+                calculateVsWithVariable(vo, fs, 20000);
                 break;
 
             case Version.vo:
@@ -181,7 +181,7 @@ public class Doppler : MonoBehaviour
                 break;
 
             case Version.fs:
-                calculateVsWithVariable(vo, 2000, fo);
+                calculateVsWithVariable(vo, 20000, fo);
                 break;
         }
         return vs_;
@@ -210,7 +210,7 @@ public class Doppler : MonoBehaviour
         switch (chooseVersion)
         {
             case Version.fo:
-                calculateVoWithVariable(fs, vs, 2000);
+                calculateVoWithVariable(fs, vs, 20000);
                 break;
 
             case Version.vs:
@@ -218,7 +218,7 @@ public class Doppler : MonoBehaviour
                 break;
 
             case Version.fs:
-                calculateVoWithVariable(2000, vs, fo);
+                calculateVoWithVariable(20000, vs, fo);
                 break;
         }
         return vo_;
@@ -423,5 +423,22 @@ public class Doppler : MonoBehaviour
             sound.GetComponent<AudioSimulator>().sourceFrequency = fs;
             car.s = s;
         }
+    }
+    public float getfo()
+    {
+        return fo;
+    }
+    public float getvo()
+    {
+        return vo;
+
+    }
+    public float getfs()
+    {
+        return fs;
+    }
+    public float getvs()
+    {
+        return vs;
     }
 }
