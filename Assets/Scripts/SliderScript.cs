@@ -20,7 +20,7 @@ public class SliderScript : MonoBehaviour
     void Start()
     {
         slider.onValueChanged.AddListener((v) => {
-            tmp.text = tmp.name + " - " + v.ToString("0.") +" "+ unit;
+            tmp.text = tmp.name + " - " + v.ToString("0.") + " " + unit;
             if (tmp.name == "vo")
             {
                 doppler.SetVo(v);
@@ -37,9 +37,30 @@ public class SliderScript : MonoBehaviour
                         Debug.Log("prze³aczam na max");
                         previousVo = max;
                     }
-                    Debug.Log("max i min: " + max + " > " + min);
-                    doppler.SetVo(previousVo);
-                    slider.value = previousVo;
+                    if ((min < 1 || min > 140) && (max < 1 || max > 140))
+                    {
+                        min = doppler.getMinValueFs();
+                        max = doppler.getMaxValueFs();
+                        if (Mathf.Abs(v - max) > Mathf.Abs(v - min))
+                        {
+                            previousFs = min;
+                        }
+                        else
+                        {
+                            previousFs = max;
+                        }
+                        doppler.SetFs(previousFs);
+                        //slider.value = previousFs;
+                        Slider slider = GameObject.Find("Slider fs")?.GetComponent<Slider>();
+                        slider.value = previousFs;
+                        //GameObject objectFs = GameObject.Find("Slider fs");
+                       
+                    }
+                    else
+                    {
+                        doppler.SetVo(previousVo);
+                        slider.value = previousVo;
+                    }
                 }
                 else
                 {
@@ -53,7 +74,7 @@ public class SliderScript : MonoBehaviour
                 {
                     min = doppler.getMinValueFs();
                     max = doppler.getMaxValueFs();
-                    if(Mathf.Abs(v-max)> Mathf.Abs(v - min))
+                    if (Mathf.Abs(v - max) > Mathf.Abs(v - min))
                     {
                         previousFs = min;
                     }
@@ -107,8 +128,28 @@ public class SliderScript : MonoBehaviour
                     {
                         previousVs = max;
                     }
-                    doppler.SetVs(previousVs);
-                    slider.value = previousVs;
+
+                    if ((min < 1 || min > 140) && (max < 1 || max > 140))
+                    {
+                        min = doppler.getMinValueFs();
+                        max = doppler.getMaxValueFs();
+                        if (Mathf.Abs(v - max) > Mathf.Abs(v - min))
+                        {
+                            previousFs = min;
+                        }
+                        else
+                        {
+                            previousFs = max;
+                        }
+                        doppler.SetFs(previousFs);
+                        Slider slider = GameObject.Find("Slider fs")?.GetComponent<Slider>();
+                        slider.value = previousFs;
+                    }
+                    else
+                    {
+                        doppler.SetVs(previousVs);
+                        slider.value = previousVs;
+                    }
                 }
                 else
                 {
@@ -121,6 +162,7 @@ public class SliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
+
